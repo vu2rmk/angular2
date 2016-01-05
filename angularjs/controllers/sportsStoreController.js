@@ -1,19 +1,26 @@
 ﻿/// <reference path="../ngmodules/sportsStoreModule.js" />
 
-
+// Function for waiting for DOM to load
 (function () {
+
+    // Creating a Controller sportsStoreCtrl
     app.controller('sportsStoreCtrl', function ($scope,$http,dataUrl) {
 
+        // Initializing data object of $scope object
         $scope.data = {};
 
+        // Making an Ajax call by passing the url as dataUrl
         $http.get(dataUrl)
+        // On successful ajax call
         .success(function (data) {
 
+            // Storing the data to the products property of data object
             $scope.data.products = data;
         })
+        // On failure of ajax call
         .error(function (error) {
-            //alert(error.status);
-            console.log(error.status);
+            
+            // Storing the errror data into the error property
             $scope.data.error = error;
         });
 

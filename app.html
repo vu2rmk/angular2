@@ -8,24 +8,33 @@
 
 </head>
 <body ng-controller="sportsStoreCtrl">
-
+    
+    <!--Header of the Page Starts here-->
     <div class="navbar navbar-inverse">
         <a class="navbar-brand" href="#">SPORTS STORE</a>
     </div>
+    <!--Header of the Page Ends here-->
 
+    <!--Alert Div Starts here-->
     <div class="alert alert-danger" ng-show="data.error">
         Error ({{data.error.status}}). The product data was not loaded.
         <a href="/app.html" class="alert-link">Click here to try again</a>
     </div>
+    <!--Alert Div Ends here-->
 
+    <!--Panel to show product list and category list starts here-->
     <div class="panel panel-default row" ng-controller="productListCtrl" ng-hide="data.error">
 
+        <!--Div to display the caategory list starts here-->
         <div class="col-xs-3">
             <a ng-click="selectCategory()"  class="btn btn-block btn-default btn-lg">Home</a>
             <a ng-repeat="item in data.products |  orderBy:'category' | unique : 'category'" ng-click="selectCategory(item)" ng-class="getCategoryClass(item)" class="btn btn-block btn-default btn-lg">
                 {{item}}
             </a>
         </div>
+        <!--Div to display the caategory list ends here-->
+
+        <!--Div to display product list starts here-->
         <div class="col-xs-8">
             <div class="well" ng-repeat="item in data.products | filter : categoryFilterFn | range: selectedPage:pageSize ">
                 <h3>
@@ -42,9 +51,12 @@
                 </a>
             </div>
         </div>
+        <!--Div to display product list ends here-->
 
     </div>
+    <!--Panel to show product list and category list ends here-->
 
+    <!--Rendering of scripts-->
     <script src="Scripts/angular.js"></script>
     <script src="angularjs/ngmodules/sportsStoreModule.js"></script>
     <script src="angularjs/controllers/sportsStoreController.js"></script>

@@ -6,6 +6,6 @@ var app = angular.module('sportsStore', ['customFilter']);
 // Creating constants for the sportsStore module
 app.constant('productListActiveClass', 'btn-primary');
 app.constant('productListPageCount', 3);
-app.constant('dataUrl', 'productserror');
+app.constant('dataUrl', 'products.json');
 
 

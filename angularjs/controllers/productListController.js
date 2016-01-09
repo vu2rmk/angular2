@@ -3,7 +3,7 @@
 /// <reference path="../ngmodules/sportsStoreModule.js" />
 
 // Creating a controller productListCtrl
-app.controller('productListCtrl', ['$scope', '$filter', 'productListActiveClass', 'productListPageCount', function ($scope, $filter, productListActiveClass, productListPageCount) {
+app.controller('productListCtrl', ['$scope', '$filter', 'productListActiveClass', 'productListPageCount','cart', function ($scope, $filter, productListActiveClass, productListPageCount,cart) {
 
     // Initializing selectedCategory to null
     var selectedCategory = null;
@@ -54,6 +54,11 @@ app.controller('productListCtrl', ['$scope', '$filter', 'productListActiveClass'
 
         // Returns the css class value based on the condition below
         return $scope.selectedPage == page ? productListActiveClass : "";
+    }
+
+    $scope.addProductToCart = function (product) {
+
+        cart.addProduct(product.id, product.name, product.price);
     }
 
 }]);

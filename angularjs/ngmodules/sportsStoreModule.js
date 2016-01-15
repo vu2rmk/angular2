@@ -1,9 +1,11 @@
 ﻿/// <reference path="../../Scripts/angular.js" />
 
-// Creating angular module sportsStore with the dependency of customFilter filter and setting it to app variable
+// Creating angular module sportsStore with the dependency of customFilter filter, cart and ngRoute module and setting it to app variable
 var app = angular.module('sportsStore', ['customFilter', 'cart', 'ngRoute'])
+    // Configuring the route by passing the $routeProvider
     .config(function ($routeProvider) {
 
+        // Providing the routes and setting the template for each route
         $routeProvider.when("/complete", {
             templateUrl: "/angularjs/views/thankYou.html"
         });

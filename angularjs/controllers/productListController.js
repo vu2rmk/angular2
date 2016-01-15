@@ -56,8 +56,10 @@ app.controller('productListCtrl', ['$scope', '$filter', 'productListActiveClass'
         return $scope.selectedPage == page ? productListActiveClass : "";
     }
 
+    //Initializing the addProductToCart function to add the required to cart by passing the product object
     $scope.addProductToCart = function (product) {
 
+        //Invokin the addProduct function of the cart and passing the product id, name and price
         cart.addProduct(product.id, product.name, product.price);
     }
 
